@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>Document</title>
+</head>
+
+<body style="background-color: bisque;">
+    <h1>FİYAT HESAPLA</h1>
+    <div class="main">
+        <a href="index.html" class="w3-button w3-green" id="main">ANA SAYFA</a>
+    </div>
+
+    <table class="center">
+        <tr>
+            <td>
+                <b>TUR SEÇİNİZ:</b>
+                <select id="ulkeler">
+                    <option value="Finlandiya" selected>Finlandiya</option>
+                    <option value="Alaska">Alaska</option>
+                    <option value="Brezilya">Brezilya</option>
+                    <option value="Kanada">Kanada</option>
+                    <option value="ABD">ABD</option>
+                </select>
+                <input type="text" placeholder="Kişi sayısını giriniz.." id="kisi">
+                <button onclick="Hesapla()">HESAPLA</button>
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        function Hesapla() {
+            let fiyat = 0;
+            let kisiSayisi = document.getElementById("kisi").value;
+            let secilenUlke = document.getElementById("ulkeler").value;
+            if (kisiSayisi <= 0) {
+                alert("Kişi sayısı en az 1 olmalıdır!");
+                return;
+            }
+
+            if (isNaN(kisiSayisi)) {
+                alert("Lütfen sayı giriniz!");
+                return;
+            }
+
+            switch (secilenUlke) {
+                case "Finlandiya":
+                    if (kisiSayisi == 1)
+                        fiyat = 1700;
+                    else if (kisiSayisi >= 2 && kisiSayisi <= 5)
+                        fiyat = 1600 * kisiSayisi;
+                    else
+                        fiyat = 1440 * kisiSayisi;
+                    break;
+
+                case "Alaska":
+                    if (kisiSayisi == 1)
+                        fiyat = 1800;
+                    else if (kisiSayisi >= 2 && kisiSayisi <= 3)
+                        fiyat = 1700 * kisiSayisi;
+                    else
+                        fiyat = 1530 * kisiSayisi;
+                    break;
+
+                case "Brezilya":
+                    if (kisiSayisi == 1)
+                        fiyat = 1800;
+                    else if (kisiSayisi >= 2 && kisiSayisi <= 3)
+                        fiyat = 1700 * kisiSayisi;
+                    else
+                        fiyat = 1530 * kisiSayisi;
+                    break;
+
+                case "Kanada":
+                    if (kisiSayisi == 1)
+                        fiyat = 3200;
+                    else if (kisiSayisi >= 2 && kisiSayisi <= 10)
+                        fiyat = 3000 * kisiSayisi;
+                    else
+                        fiyat = 2900 * kisiSayisi;
+                    break;
+
+                case "ABD":
+                    if (kisiSayisi == 1)
+                        fiyat = 3100;
+                    else if (kisiSayisi >= 2 && kisiSayisi <= 7)
+                        fiyat = 2900 * kisiSayisi;
+                    else
+                        fiyat = 2850 * kisiSayisi;
+                    break;
+
+                case "ABD":
+                    if (kisiSayisi == 1)
+                        fiyat = 3500;
+                    else if (kisiSayisi >= 2 && kisiSayisi <= 8)
+                        fiyat = 3400 * kisiSayisi;
+                    else
+                        fiyat = 3300 * kisiSayisi;
+                    break;
+            }
+
+            alert("ÜLKE: " + secilenUlke + " Kişi Sayısı: " + kisiSayisi + " Toplam Fiyat: " + fiyat + "$");
+        }
+    </script>
+
+</body>
+
+</html>
